@@ -33,10 +33,10 @@ module sistemas
                     implicit none
                     integer:: n,i
                     real(8):: v(:), norma
-                n=size(v)
-                    norma=v(1)**2
-                    do i=2,n
-                        norma=v(i)**2+norma
+                    n=size(v)
+                    norma=0.0
+                    do i=1,n
+                        norma=(v(i)**2)+norma
                     end do
                     norma=sqrt(norma)
         end function norma
