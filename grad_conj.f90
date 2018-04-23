@@ -16,16 +16,15 @@ module sistemas
             allocate(v1(n))
             allocate(t(n,1))
             r1=matmul(A,x)-b
-            v=-r1
-            do i=1,20
-                v1=v
-                t= reshape(v,[n,1])
-                tao = (norma(r1)**2)/norma(matmul(matmul(A,v),t))
-                x = x + tao*v 
+            v1=-r1
+                t= reshape(v1,[n,1])
+                tao = (norma(r1)**2)/norma(matmul(matmul(A,v1),t))
+                x = x + tao*v1 
                 r1 = r 
-                r1 = r + tao*matmul(A,v)
+                r1 = r + tao*matmul(A,v1)
                 if (norma(r)<norma(b)) EXIT
                 s=(norma(r1)**2)/(norma(r)**2)
+                v1=v
                 v1=-r1 + s*v 
             end do
         end subroutine grad_conj
