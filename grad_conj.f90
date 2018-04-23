@@ -17,6 +17,7 @@ module sistemas
             allocate(t(n,1))
             r1=matmul(A,x)-b
             v1=-r1
+            do i=1,20
                 t= reshape(v1,[n,1])
                 tao = (norma(r1)**2)/norma(matmul(matmul(A,v1),t))
                 x = x + tao*v1 
