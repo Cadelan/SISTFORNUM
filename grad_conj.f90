@@ -23,7 +23,7 @@ module sistemas
                 x = x + tao*v1 
                 r1 = r 
                 r1 = r + tao*matmul(A,v1)
-                if (norma(r)<norma(b)) EXIT
+                if (norma(r1)<norma(b)) EXIT
                 s=(norma(r1)**2)/(norma(r)**2)
                 v1=v
                 v1=-r1 + s*v 
